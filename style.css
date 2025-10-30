@@ -1,0 +1,242 @@
+* {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body::selection {
+    background-color: #ffd700;
+    color: #333;
+}
+
+nav::selection {
+    background-color: #5d6c9b;
+    color: white;
+    text-shadow: none;
+}
+
+/*[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    white-space: nowrap;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 20;
+}
+
+[data-tooltip]:hover::after {
+    visibility: visible;
+    opacity: 1;
+}*/
+
+body {
+    background-color: #f4f4f4;
+    padding: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    /*margin-right: 15px;*/
+    padding: 0;
+}
+
+nav ul li {
+    padding: 0 15px;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    display: block;
+
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul a:hover {
+    color: #ffd700;
+    filter: brightness(1.2);
+    transition: filter 0.2s;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin-bottom: 15px;
+}
+
+.div_intestazione, .div_video_presentazione {
+    margin-bottom: 30px;
+
+    background-color: #cacaca;
+    border-radius: 25px ;
+    padding: 10px;
+    border: 2px solid #5b6c9b;
+    box-shadow: 5px 5px 15px 5px #464646;
+
+    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.div_intestazione:hover ~ .div_video_presentazione,
+.div_video_presentazione:hover ~ .div_intestazione {
+    filter: blur(2px);
+    opacity: 0.5;
+}
+
+.div_intestazione:hover,
+.div_video_presentazione:hover {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.05);
+    z-index: 5;
+    transition: filter 0.3s, opacity 0.3s, transform 0.3s;
+    box-shadow: 8px 8px 25px 8px #303030;
+    border-color: #ffd700;
+}
+
+.active {
+    color: #ffd700 !important;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 3px !important;
+} 
+
+.div_foto {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    box-shadow: 5px 5px 15px 5px #464646;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.div_foto h2 {
+    margin-bottom: 15px;
+}
+
+.div_foto img {
+    max-width: 100%;
+    height: auto;
+
+    width: 300px;
+
+    border-radius: 10px;
+    margin: 10px;
+    object-fit: cover;
+}
+
+.galleria {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.galleria img {
+    flex: 1 1 250px;
+    height: 250px;
+    object-fit: cover;
+
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.galleria img:hover {
+    transform: scale(1.05);
+}
+
+.galleria figure {
+    flex: 1 1 250px;
+    margin: 0;
+    text-align: center;
+
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.galleria figure:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.galleria figure img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.galleria figcaption {
+    padding: 10px 5px;
+    background-color: #f0f0f0;
+    font-size: 0.9em;
+    color: #555;
+    border-top: 1px solid #ccc;
+}
+
+footer {
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 40px;
+
+    background-color: #333;
+    color: #f4f4f4;
+
+    text-align: center;
+    font-size: 0.8em;
+    border-top: 1px solid #555;
+}
+
+footer p {
+    margin: 0;
+    padding: 0 20px;
+}
