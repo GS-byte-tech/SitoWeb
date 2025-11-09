@@ -16,11 +16,43 @@ nav::selection {
     text-shadow: none;
 }
 
+/*[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    white-space: nowrap;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 20;
+}
+
+[data-tooltip]:hover::after {
+    visibility: visible;
+    opacity: 1;
+}*/
+
 body {
-    background-color: #f4f4f4;
+    /*background-color: #f4f4f4;*/
+    /*background-color: #303030;*/
     padding: 24px;
     max-width: 1000px;
     margin: 0 auto;
+
+    color: #f4f4f4;
 }
 
 nav {
@@ -67,22 +99,26 @@ nav ul a:hover {
 hr {
     border: 0;
     height: 1px;
-    background-color: #ccc;
+    background-color: #555;
     margin-bottom: 15px;
 }
 
 .div_intestazione, .div_video_presentazione {
     margin-bottom: 30px;
 
-    background-color: #cacaca;
+    /*background-color: #cacaca;*/
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 25px ;
     padding: 10px;
     border: 2px solid #5b6c9b;
-    box-shadow: 5px 5px 15px 5px #464646;
+    /*box-shadow: 5px 5px 15px 5px #464646;*/
+    box-shadow: 0 0 15px 1px rgba(91, 108, 155, 0.4);
 
     transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     position: relative;
     z-index: 1;
+
+    animation: fadeSlideIn 1.2s ease-out 0.5s backwards;
 }
 
 .div_intestazione:hover ~ .div_video_presentazione,
@@ -98,7 +134,8 @@ hr {
     transform: scale(1.05);
     z-index: 5;
     transition: filter 0.3s, opacity 0.3s, transform 0.3s;
-    box-shadow: 8px 8px 25px 8px #303030;
+    /*box-shadow: 8px 8px 25px 8px #303030;*/
+    box-shadow: 0 0 25px 5px #ffd700;
     border-color: #ffd700;
 }
 
@@ -106,14 +143,19 @@ hr {
     color: #ffd700 !important;
     border-bottom: 2px solid #ffd700;
     padding-bottom: 3px !important;
+
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    transition: box-shadow 0.3s;
 } 
 
 .div_foto {
     margin-bottom: 30px;
     padding: 20px;
-    background-color: #e0e0e0;
+    /*background-color: #e0e0e0;*/
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 25px;
-    box-shadow: 5px 5px 15px 5px #464646;
+    /*box-shadow: 5px 5px 15px 5px #464646;*/
+    box-shadow: 0 0 15px 1px rgba(91, 108, 155, 0.4);
 }
 
 .div_foto h2 {
@@ -179,10 +221,10 @@ hr {
 
 .galleria figcaption {
     padding: 10px 5px;
-    background-color: #f0f0f0;
+    background-color: rgba(255, 255, 255, 0.1);
     font-size: 0.9em;
-    color: #555;
-    border-top: 1px solid #ccc;
+    color: #f4f4f4;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 footer {
@@ -201,11 +243,66 @@ footer {
 footer p {
     margin: 0;
     padding: 0 20px;
-
 }
 
 .div_video_presentazione video {
     display: block;
-    margin-bottom: 10px;
-    justify-self: center;
+    margin: 0 auto 10px auto;
+    border-radius: 10px;
+    
+}
+
+
+
+
+
+.div_intestazione h2, .div_intestazione p,
+.div_video_presentazione h2,
+.div_foto h2, .div_foto p {
+    color: #f4f4f4;
+}
+
+
+.div_video_presentazione {
+    overflow: hidden;
+    animation-delay: 1s;
+    
+}
+
+@keyframes Ingrandisci {
+    0% {
+        transform: scale(0.5) translateY(20px);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(0.8) translateY(10px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.0) translateY(0); 
+        opacity: 1;
+    }
+}
+
+.video {
+    width: 100%;
+
+    transform: scale(0.5);
+
+    animation-name: Ingrandisci;
+    animation-duration: 3s;
+    /*animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);*/ /* Movimento fluido e "elastico) */
+    animation-timing-function: cubic-bezier(0.1, 1.0, 0.9, 0.0); /* Impulso */
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

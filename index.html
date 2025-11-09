@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mio sito</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.slim.bundle.min.js"></script> 
     
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-stars@3/tsparticles.preset.stars.bundle.min.js"></script>
 </head>
 <body>
     
@@ -17,6 +20,7 @@
         </ul>
     </nav>
 
+<div id="tsparticles"></div>
 
     <div class="div_intestazione" title="ciao">
         <h2>Intestazione</h2>
@@ -28,14 +32,31 @@
     <div class="div_video_presentazione" id="video_presentazione">
         <h2>Video presentazione</h2>
         <hr>
-        <video src="/Il sistema solare.mp4" controls width="60%" preload="metadata"></video>
+        <video class="video" src="/Il sistema solare.mp4" controls width="60%" preload="metadata" poster="wired_placeholder_dummy.webp"></video>
     </div>
+
 
     <footer>
         <p>&copy; 2025 Mio Sito. Ospitato da Vercel.</p>
     </footer>
 
+    <script>
+        (async () => {
+            await loadStarsPreset(tsParticles); 
+
+            await tsParticles.load({
+                id: "tsparticles",
+                options: {
+                    preset: "stars", 
+
+                    fullScreen: { enable: true, zIndex: -1 }, 
+                    background: {
+                        color: { value: "#000000" }
+                    }
+                }
+            });
+        })();
+    </script>
+
 </body>
-
 </html>
-
