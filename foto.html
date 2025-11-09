@@ -6,6 +6,9 @@
     <title>Mio sito</title>
     <link rel="stylesheet" href="style.css">
     
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.slim.bundle.min.js"></script> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-stars@3/tsparticles.preset.stars.bundle.min.js"></script>
 </head>
 <body>
     
@@ -13,7 +16,7 @@
         <ul>
             <li><a href="/index.html">Home</a></li>
             <li><a href="/foto.html" class="active">Foto</a></li>
-            <li><a href="#video_presentazione">Video</a></li>
+            <li><a href="index.html#video_presentazione">Video</a></li>
         </ul>
     </nav>
 
@@ -37,14 +40,30 @@
                 <figcaption>Punto all'obiettivo</figcaption>
             </figure>
         </div>
+        <p>Sono ...</p>
     </div>
 
     <footer>
         <p>&copy; 2025 Mio Sito. Ospitato da Vercel.</p>
     </footer>
 
+
+    <script>
+        (async () => {
+            await loadStarsPreset(tsParticles); 
+
+            await tsParticles.load({
+                id: "tsparticles",
+                options: {
+                    preset: "stars", 
+
+                    fullScreen: { enable: true, zIndex: -1 }, 
+                    background: {
+                        color: { value: "#000000" }
+                    }
+                }
+            });
+        })();
+    </script>
 </body>
-
 </html>
-
-
