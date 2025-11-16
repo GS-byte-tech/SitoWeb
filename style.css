@@ -35,35 +35,6 @@ nav::selection {
     background-color: #0d0d0d;
 }
 
-/*[data-tooltip] {
-    position: relative;
-}
-
-[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    background-color: #333;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    white-space: nowrap;
-
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
-    z-index: 20;
-}
-
-[data-tooltip]:hover::after {
-    visibility: visible;
-    opacity: 1;
-}*/
-
 body {
     /*background-color: #f4f4f4;*/
     /*background-color: #303030;*/
@@ -326,10 +297,8 @@ footer p {
     }
 }
 
-/* --- Media Query per Schermi Piccoli (fino a 600px di larghezza) --- */
 @media (max-width: 600px) {
     
-    /* 1. Riduci il padding generale */
     nav, 
     .div_intestazione, 
     .div_video_presentazione,
@@ -338,29 +307,25 @@ footer p {
         padding-right: 15px;
     }
 
-    /* 2. Trasforma la Navigazione in Colonna */
     nav ul {
-        flex-direction: column; /* I link vanno uno sotto l'altro */
-        align-items: stretch;   /* Occupano tutta la larghezza del contenitore */
+        flex-direction: column;
+        align-items: stretch;
     }
 
     nav ul li {
-        padding: 5px 0; /* Riduci il padding verticale */
+        padding: 5px 0;
         text-align: center;
     }
     
-    /* 3. Assicura che la linea hr sia discreta */
     hr {
         margin-bottom: 10px;
     }
 
-    /* 4. Forza le Figure della Galleria a Occupare una Riga Intera */
     .galleria figure {
-        flex: 1 1 100%; /* Ogni immagine occupa il 100% della larghezza */
-        max-width: 90%; /* Limita leggermente la larghezza per margini laterali */
+        flex: 1 1 100%;
+        max-width: 90%;
     }
 
-    /* Rimuovi l'altezza fissa, lascia che le proporzioni dettino l'altezza */
     .galleria figure img {
         height: auto; 
     }
@@ -380,4 +345,5 @@ footer p {
 .div_video_presentazione video::-webkit-media-controls-time-remaining-display {
     color: #ffd700;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+
 }
