@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mio sito</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/boxs.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.slim.bundle.min.js"></script> 
-    
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-stars@3/tsparticles.preset.stars.bundle.min.js"></script>
 </head>
 <body>
@@ -20,6 +22,7 @@
         </ul>
     </nav>
 
+<div id="tsparticles"></div>
 
     <div class="div_foto">
         <h2>Chi sono?</h2>
@@ -40,7 +43,6 @@
                 <figcaption>Punto all'obiettivo</figcaption>
             </figure>
         </div>
-        <p>Sono ...</p>
     </div>
 
     <footer>
@@ -48,22 +50,6 @@
     </footer>
 
 
-    <script>
-        (async () => {
-            await loadStarsPreset(tsParticles); 
-
-            await tsParticles.load({
-                id: "tsparticles",
-                options: {
-                    preset: "stars", 
-
-                    fullScreen: { enable: true, zIndex: -1 }, 
-                    background: {
-                        color: { value: "#000000" }
-                    }
-                }
-            });
-        })();
-    </script>
+    <script src="/js/background.js"></script>
 </body>
 </html>

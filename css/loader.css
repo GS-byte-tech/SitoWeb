@@ -1,0 +1,151 @@
+@import url('animations.css');
+
+#loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    color: #ffd700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    z-index: 9999;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    overflow: hidden;
+}
+
+#starfallCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.loader-message {
+    position: relative;
+    z-index: 2;
+    animation: flicker 1.5s infinite alternate;
+}
+
+#main-content {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: none; 
+    opacity: 0; 
+    transition: opacity 0.5s; 
+}
+
+#revealMask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998; 
+    background-color: #000000; 
+}
+
+
+.loaded-page #main-content {
+    opacity: 1;
+}
+
+.loaded-page #loader-overlay,
+.loaded-page #revealMask {
+    display: none;
+}
+
+.loader-message {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: flicker 1.5s infinite alternate;
+}
+
+
+.loader-message {
+    position: absolute;
+    top: 45%; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: flicker 1.5s infinite alternate;
+}
+
+#circular-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid rgba(91, 108, 155, 0.3); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    
+    animation: glowPulse 1.5s infinite alternate; 
+}
+
+#loading-percentage {
+    position: relative; 
+    top: auto; 
+    right: auto;
+    font-size: 1.5em; 
+}
+
+#circular-loader::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #ffd700 0%, 
+        #ffd700 var(--progress, 0%), 
+        transparent var(--progress, 0%), 
+        transparent 100%
+    );
+    mask: radial-gradient(circle at center, transparent 70%, black 70%);
+    -webkit-mask: radial-gradient(circle at center, transparent 70%, black 70%);
+    
+    filter: blur(2px);
+}
+
+
+
+
+nav, 
+.div_intestazione, 
+.div_video_presentazione, 
+.horizontal-scroll-wrapper {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.loaded-page nav, 
+.loaded-page .div_intestazione, 
+.loaded-page .div_video_presentazione, 
+.loaded-page .horizontal-scroll-wrapper {
+    opacity: 1;
+}
+
+.div_video_presentazione video {
+    opacity: 0;
+}
+
+.loaded-page .div_video_presentazione video {
+    opacity: 1;
+}

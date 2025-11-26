@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mio sito</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/boxs.css">
+    <link rel="stylesheet" href="/css/carousel.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+    <link rel="stylesheet" href="/css/loader.css">
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.slim.bundle.min.js"></script> 
-    
     <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-stars@3/tsparticles.preset.stars.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-hyperspace@3/tsparticles.preset.hyperspace.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 </head>
 <body>
-    <div id="progress-bar"></div>
+
+    <div id="loader-overlay">
+        <canvas id="starfallCanvas"></canvas>
+        <div class="loader-message">Viaggio in corso...</div>
+
+        <div id="circular-loader">
+            <span id="loading-percentage">0%</span>
+        </div>
+    </div>
+    
+    <div id="main-content">
+        <canvas id="revealMask"></canvas> 
+        <div id="tsparticles"></div> 
+    </div>
+
+
     <nav>
         <ul>
             <li><a href="/index.html" class="active">Home</a></li>
@@ -20,7 +43,7 @@
         </ul>
     </nav>
 
-<div id="tsparticles"></div>
+<!-- <div id="tsparticles"></div> -->
 
     <div class="div_intestazione" title="intestazione">
         <h2>Intestazione</h2>
@@ -35,28 +58,80 @@
         <video class="video" src="/Il sistema solare.mp4" controls width="60%" preload="metadata" poster="img/wired_placeholder_dummy.webp"></video>
     </div>
 
+    </div>
+
+    <section class="horizontal-scroll-wrapper">
+        <div class="horizontal-scroll-container">
+            
+            <div class="scroll-pin-placeholder">
+                <h2>I Pianeti del Nostro Sistema</h2>
+                <p>Scorri la pagina in verticale per far ruotare il sistema.</p>
+            </div>
+            <div class="scroll-hint">
+                <p>Scorri</p>
+                <span class="arrow-down">↓</span> 
+            </div>
+            
+            <div class="swiper-container mySwiper">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                        <figure>
+                            <img src="/img/terra.jpg" alt="Pianeta Terra">
+                            <figcaption>Terra</figcaption>
+                        </figure>
+                        <div class="planet-details">
+                            <h4>Il Nostro Mondo</h4>
+                            <p>Diametro: 12.742 km | Distanza dal Sole: 1 UA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <figure>
+                            <img src="/img/marte.jpg" alt="Pianeta Marte">
+                            <figcaption>Marte</figcaption>
+                        </figure>
+                        <div class="planet-details">
+                            <h4>Il Pianeta Rosso</h4>
+                            <p>Diametro: 6.779 km | Anno: 687 giorni terrestri</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <figure>
+                            <img src="/img/giove.png" alt="Pianeta Giove">
+                            <figcaption>Giove</figcaption>
+                        </figure>
+                        <div class="planet-details">
+                            <h4>Il Gigante Gassoso</h4>
+                            <p>Massa: 318 volte la Terra | L'Atmosfera è 90% Idrogeno</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <figure>
+                            <img src="/img/saturno.jpg" alt="Pianeta Saturno">
+                            <figcaption>Saturno</figcaption>
+                        </figure>
+                        <div class="planet-details">
+                            <h4>Gli Anelli Maestosi</h4>
+                            <p>Anelli: Principalmente ghiaccio | Densità: Meno dell'acqua</p>
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            
+        </div>
+    </section>
+
 
     <footer>
         <p>&copy; 2025 Mio Sito. Ospitato da Vercel.</p>
     </footer>
 
-    <script>
-        (async () => {
-            await loadStarsPreset(tsParticles); 
-
-            await tsParticles.load({
-                id: "tsparticles",
-                options: {
-                    preset: "stars", 
-
-                    fullScreen: { enable: true, zIndex: -1 }, 
-                    background: {
-                        color: { value: "#000000" }
-                    }
-                }
-            });
-        })();
-    </script>
-
+    <script src="/js/loader.js"></script>
+    <script src="/js/background.js"></script>
+    <script src="/js/scroll-swiper.js"></script>
 </body>
 </html>

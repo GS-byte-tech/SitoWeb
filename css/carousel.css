@@ -1,0 +1,173 @@
+@import url('animations.css');
+
+/* --- STILI PER SWIPER.JS CAROUSEL --- */
+
+.div_carosello_pianeti {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+    box-shadow: 0 0 15px 1px rgba(91, 108, 155, 0.4);
+    text-align: center;
+}
+
+.div_carosello_pianeti h2, .div_carosello_pianeti p {
+    color: #f4f4f4;
+    margin-bottom: 10px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 350px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.swiper-slide figure {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: none; 
+
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5); 
+    
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.swiper-slide-active img {
+    box-shadow: 0 0 20px 5px #ffd700;
+}
+
+.swiper-slide figcaption {
+    margin-top: 15px;
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #ffd700 !important;
+}
+.swiper-pagination-bullet-active {
+    background: #ffd700 !important;
+}
+
+
+/* --- STILI PER LO SCROLL-DRIVEN PINNING --- */
+
+/* 1. Wrapper Esterno (Determina lo spazio di scorrimento verticale) */
+.horizontal-scroll-wrapper {
+    /* Imposta un'altezza sufficiente: 300vh = 3 volte l'altezza della finestra */
+    height: 500vh; 
+    position: relative;
+    max-width: none; 
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* 2. Contenitore Interno (Il blocco che si aggancia allo schermo) */
+.horizontal-scroll-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 3. Placeholder per il testo iniziale */
+.scroll-pin-placeholder {
+    padding: 20px;
+    text-align: center;
+    color: #f4f4f4;
+    z-index: 10;
+}
+
+/* 4. Adattamento Swiper per l'ambiente bloccato */
+.swiper-container {
+    width: 100%; 
+    height: 90vh;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Migliora l'aspetto delle ombre Coverflow di Swiper */
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+    background-image: none !important;
+    box-shadow: 0 0 50px rgba(0, 191, 255, 0.4);
+}
+
+/* Sottolinea il pianeta al centro (quello "attivo") */
+.swiper-slide-active {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+    transition: transform 0.3s, filter 0.3s;
+}
+
+/* Stile suggerimento */
+.scroll-hint {
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffd700;
+    font-size: 1.1em;
+    text-align: center;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.scroll-hint .arrow-down {
+    display: block;
+    font-size: 2em;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.planet-details {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    bottom: 50px;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid #ffd700;
+    text-align: left;
+    z-index: 50;
+}
+
+.planet-details h4 {
+    color: #ffd700;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+}
+
+.planet-details p {
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.swiper-slide-active .planet-details {
+    opacity: 1;
+    visibility: visible;
+}

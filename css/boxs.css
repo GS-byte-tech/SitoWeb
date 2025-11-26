@@ -1,0 +1,116 @@
+@import url('animations.css');
+
+.div_intestazione, .div_video_presentazione {
+    margin-bottom: 30px;
+
+    /*background-color: #cacaca;*/
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 25px ;
+    padding: 10px;
+    border: 2px solid #5b6c9b;
+    /*box-shadow: 5px 5px 15px 5px #464646;*/
+    box-shadow: 0 0 15px 1px rgba(91, 108, 155, 0.4);
+
+    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+
+    animation: fadeSlideIn 1.2s ease-out 0.5s backwards;
+}
+
+.div_intestazione:hover ~ .div_video_presentazione,
+.div_video_presentazione:hover ~ .div_intestazione,
+.div_intestazione:hover ~ .div_exemple,
+.div_exemple:hover ~ .div_intestazione,
+.div_video_presentazione:hover ~ .div_exemple,
+.div_exemple:hover ~ .div_video_presentazione {
+    filter: blur(2px);
+    opacity: 0.5;
+}
+
+.div_intestazione:hover,
+.div_video_presentazione:hover {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.05);
+    z-index: 5;
+    transition: filter 0.3s, opacity 0.3s, transform 0.3s;
+    /*box-shadow: 8px 8px 25px 8px #303030;*/
+    box-shadow: 0 0 25px 5px #ffd700;
+    border-color: #ffd700;
+}
+
+.div_video_presentazione video {
+    display: block;
+    margin: 0 auto 10px auto;
+    border-radius: 10px;
+    
+}
+
+.div_video_presentazione {
+    overflow: hidden;
+    animation-delay: 1s;
+    
+}
+
+.div_video_presentazione video::-webkit-media-controls-panel {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #f4f4f4;
+}
+
+.div_video_presentazione video::-webkit-media-controls-timeline {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.div_video_presentazione video::-webkit-media-controls-current-time-display,
+.div_video_presentazione video::-webkit-media-controls-time-remaining-display {
+    color: #ffd700;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.div_video_presentazione {
+    overflow: hidden;
+    animation-delay: 1s;
+    
+}
+
+.div_exemple {
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 25px ;
+    padding: 20px;
+    border: 2px solid #5b6c9b;
+    box-shadow: 0 0 15px 1px rgba(91, 108, 155, 0.4);
+    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+    animation: fadeSlideIn 1.2s ease-out 0.5s backwards;
+}
+
+.div_exemple:hover {
+    filter: none;
+    opacity: 1;
+    transition: filter 0.3s, opacity 0.3s;
+    /*box-shadow: 8px 8px 25px 8px #303030;*/
+    box-shadow: 0 0 25px 5px #ffd700;
+    border-color: #ffd700;
+}
+
+.div_intestazione h2, .div_intestazione p,
+.div_video_presentazione h2,
+.div_foto h2, .div_foto p {
+    color: #f4f4f4;
+}
+
+.video {
+    width: 100%;
+
+    transform: scale(0.5);
+
+    animation-name: Ingrandisci;
+    animation-duration: 3s;
+    /*animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);*/ /* Movimento fluido e "elastico) */
+    animation-timing-function: cubic-bezier(0.1, 1.0, 0.9, 0.0); /* Impulso */
+    animation-fill-mode: forwards;
+}

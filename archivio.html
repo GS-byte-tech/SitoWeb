@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mio sito</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/boxs.css">
+    <link rel="stylesheet" href="/css/carousel.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.slim.bundle.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-stars@3/tsparticles.preset.stars.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="/index.html" class="active">Home</a></li>
+            <li><a href="/foto.html" target="_blank">Foto</a></li>
+            <li><a href="#video_presentazione">Video</a></li>
+        </ul>
+    </nav>
+
+<!-- <div id="tsparticles"></div> -->
+
+    <div class="div_exemple">
+        <h2>Exemple 1</h2>
+        <hr>
+
+        <section class="horizontal-scroll-wrapper">
+            <div class="horizontal-scroll-container">
+                
+                <div class="scroll-pin-placeholder">
+                    <h2>1. Carosello Pinning (Swiper.js)</h2>
+                    <p>Scorri la pagina in verticale per far ruotare il sistema. Questo esempio richiede l'uso dello script `scroll-swiper.js`.</p>                </div>
+                <div class="scroll-hint">
+                    <p>Scorri</p>
+                    <span class="arrow-down">↓</span> 
+                </div>
+                
+                <div class="swiper-container mySwiper">
+                    <div class="swiper-wrapper">
+                        
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="/img/terra.jpg" alt="Pianeta Terra" loading="lazy">
+                                <figcaption>Terra</figcaption>
+                            </figure>
+                            <div class="planet-details">
+                                <h4>Il Nostro Mondo</h4>
+                                <p>Diametro: 12.742 km | Distanza dal Sole: 1 UA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="/img/marte.jpg" alt="Pianeta Marte" loading="lazy">
+                                <figcaption>Marte</figcaption>
+                            </figure>
+                            <div class="planet-details">
+                                <h4>Il Pianeta Rosso</h4>
+                                <p>Diametro: 6.779 km | Anno: 687 giorni terrestri</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="/img/giove.png" alt="Pianeta Giove" loading="lazy">
+                                <figcaption>Giove</figcaption>
+                            </figure>
+                            <div class="planet-details">
+                                <h4>Il Gigante Gassoso</h4>
+                                <p>Massa: 318 volte la Terra | L'Atmosfera è 90% Idrogeno</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <figure>
+                                <img src="/img/saturno.jpg" alt="Pianeta Saturno" loading="lazy">
+                                <figcaption>Saturno</figcaption>
+                            </figure>
+                            <div class="planet-details">
+                                <h4>Gli Anelli Maestosi</h4>
+                                <p>Anelli: Principalmente ghiaccio | Densità: Meno dell'acqua</p>
+                            </div>
+                        </div>
+                        
+                        </div>
+                    </div>
+                
+            </div>
+        </section>
+    </div>
+
+    <div class="div_exemple">
+        <h2>Exemple 2</h2>
+        <hr>
+
+    </div>
+
+
+
+
+
+    <footer>
+        <p>&copy; 2025 Mio Sito. Ospitato da Vercel.</p>
+    </footer>
+
+    <script src="/js/background.js"></script>
+    <script src="/js/scroll-swiper.js"></script>
+</body>
+</html>
